@@ -72,7 +72,8 @@ const getSearchResult = () => {
   }, 500)
 }
 const previewCity = (searchResult) => {
-  const city = searchResult.city
+  const resultType = searchResult.result_type
+  const city = searchResult[resultType]
   const state = searchResult.state
   router.push({
     name: 'cityView',
