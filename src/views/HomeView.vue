@@ -62,7 +62,6 @@ const getSearchResult = () => {
           `https://api.geoapify.com/v1/geocode/search?text=${searchQuery.value}&type=locality&format=json&apiKey=${geoapifyAPIKey}`,
         )
         geoapifySearchResults.value = result.data.results
-        console.log(geoapifySearchResults.value)
       } catch {
         searchError.value = true
       }
