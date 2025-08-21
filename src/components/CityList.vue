@@ -23,7 +23,7 @@ const getCities = async () => {
   savedCities.value.forEach((city) => {
     request.push(
       axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=${weatherApiKEY}&q=${city.coords.lat},${city.coords.lon}`,
+        `https://api.weatherapi.com/v1/current.json?key=${weatherApiKEY}&q=${city.coords.lat},${city.coords.lon}`,
       ),
     )
   })
