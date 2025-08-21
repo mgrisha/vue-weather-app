@@ -47,7 +47,6 @@ import CityCardSkeleton from '@/components/CityCardSkeleton.vue'
 const router = useRouter()
 
 const geoapifyAPIKey = 'af79ece517fd4be6a90558dae997cb40'
-// const openWeathermapAPIKey = '660ce7f4d0e336dfe051d1307c9a1a8e'
 const searchQuery = ref('')
 const queryTimeout = ref(null)
 const geoapifySearchResults = ref(null)
