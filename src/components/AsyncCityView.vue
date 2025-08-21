@@ -69,6 +69,7 @@
     <div
       class="flex items-center gap-2 py-12 text-white cursor-pointer duration-300 hover:text-red-500"
       @click="removeCity"
+      v-if="issetCityLocalStorage"
     >
       <i class="fa-solid fa-trash"></i>
       <p>Remove City</p>
@@ -77,10 +78,12 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import { useRoute, useRouter } from 'vue-router'
 const weatherApiKEY = '4c23348466aa48a9b5e212852251105'
 const route = useRoute()
+const issetCityLocalStorage = ref(null)
 const getWeatherData = async () => {
   try {
     const { lat, lon } = route.query
@@ -105,6 +108,11 @@ const removeCity = () => {
     name: 'home',
   })
 }
+
+onMounted(() => {
+  const cities = JSON.parse(localStorage.getItem('savedCities'))
+  issetCityLocalStorage.value = cities.find((city) => city.id === route.query.id)
+})
 </script>
 
 <style scoped></style>
